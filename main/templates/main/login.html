@@ -1,0 +1,28 @@
+<h1>Login Here!</h1>
+
+{% if loginform.errors %}
+    <div class="errors">
+        <ul>
+            {% for error in loginform.non_field_errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}
+
+
+<form method="post">
+    {% csrf_token %}
+    <table>
+        <tbody>
+            {% for field in loginform %}
+                <tr>
+                    <td>{{ field.label_tag }}</td>
+                    <td>{{ field }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <button type="submit">Login</button>
+</form>
+

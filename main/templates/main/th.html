@@ -1,0 +1,57 @@
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- jQuery UI library -->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+
+<h4>Account Number: {{account_number}}</h4>
+<h4>Final Bal: {{amount}}</h4>
+<form method="get">
+    {{ form.as_p }}
+    <button type="submit">Filter</button>
+</form>
+<table>
+  <thead>
+    <tr>
+      <th>Timestamp</th>
+      <th>Description</th>
+      <th>Transaction Type</th>
+      <th>Amount</th>
+      <th>Balance</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for transaction in transactions %}
+    <tr>
+      <td>{{ transaction.timestamp }}</td>
+      <td>{{ transaction.description }}</td>
+      <td>{{ transaction.transaction_type }}</td>
+      <td>{{ transaction.amount }}</td>
+      <td>{{ transaction.balance }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+
+
+<a href="{% url 'dashboard' %}">Back to Dashboard</a>
+
+
+
+<script>
+    $(document).ready(function() {
+        $('#id_start_date').datepicker({
+            dateFormat: 'yy-mm-dd',
+            changeMonth: true,
+            changeYear: true
+        });
+    
+        $('#id_end_date').datepicker({
+            dateFormat: 'yy-mm-dd',
+            changeMonth: true,
+            changeYear: true
+        });
+    });
+    </script>

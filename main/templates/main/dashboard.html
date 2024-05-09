@@ -1,0 +1,13 @@
+<h1>Dashboard</h1>
+
+<h4>Welcome to Banking, {{username}}!, Your account number is: {{account_number}}</h4>
+<h4>Your balance is: INR {{amount}}</h4>
+
+<a href="{% url 'accinfo' %}">Account Info</a>
+<br>
+<ul>
+    <li><a href="{% url 'cw' %}">Cash Withdrawal</a></li>
+    <li><a href="{% url 'cd' %}">Cash Deposit</a></li>
+    <li><a href="{% url 'th' %}">Transaction History</a></li>
+</ul>
+<a href="{% url 'my-logout' %}">Logout</a>

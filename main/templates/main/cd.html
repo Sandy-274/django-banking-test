@@ -1,0 +1,11 @@
+
+<form method="post">
+    {% csrf_token %}
+    <label for="amount">Amount to Deposit:</label>
+    <input type="number" name="amount" required>
+    <button type="submit">Deposit</button>
+    {% if deposit_message %}
+        <p>{{ deposit_message }}</p>
+    {% endif %}
+</form>
+<a href="{% url 'dashboard' %}">Back to Dashboard</a>
